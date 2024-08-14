@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Extraction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Extraction</h1>
+        <form action="/textract" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <button type="submit">Extract Text</button>
+        </form>
+        {% if text %}
+            <div class="results">
+                <h2>Extracted Text:</h2>
+                <p>{{ text }}</p>
+            </div>
+        {% endif %}
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>
