@@ -1,8 +1,11 @@
 # AWS AI Services Demonstration Flask Application
 
-This project showcases the use of AWS AI services, specifically AWS Textract and AWS Translate, through a simple Flask web application. The application allows users to extract text from images and translate text files into different languages.
+This project showcases the use of **AWS AI services**, specifically **AWS Textract** and **AWS Translate**, through a simple **Flask web application**. The application allows users to extract text from images and translate text files into different languages.
 
-![Project Screenshot](URL-to-your-screenshot)
+
+## Project Architecture
+
+![Project Architecture](images/Architecture.png)
 
 ## Table of Contents
 
@@ -15,21 +18,21 @@ This project showcases the use of AWS AI services, specifically AWS Textract and
 7. [Key Learnings](#key-learnings)
 8. [Relevant Links](#relevant-links)
 9. [Deployment](#deployment)
-10. [License](#license)
 
 ## Project Overview
 
-This Flask application demonstrates the integration of AWS AI services into a web application. Users can upload images for text extraction using AWS Textract and upload text files for translation using AWS Translate. The application provides a user-friendly interface with options to navigate between these functionalities.
+This Flask application demonstrates the integration of **AWS AI services** into a web application. Users can upload images for text extraction using **AWS Textract** and upload text files for translation using **AWS Translate**. The application provides a user-friendly interface with options to navigate between these functionalities.
 
 ## Features
 
 - **Text Extraction**: Upload an image to extract text using AWS Textract.
 - **Text Translation**: Upload a text file and choose a language for translation using AWS Translate.
-- **User-Friendly Interface**: Simple and intuitive design for easy navigation.
+- **User-Friendly Interface**: Simple design for easy navigation.
 
 ## Technologies Used
 
 - **Flask**: Web framework for building the application.
+- **Pyhton** : Programming Language choosen
 - **AWS Textract**: Service for extracting text from images.
 - **AWS Translate**: Service for translating text into different languages.
 - **HTML/CSS**: For frontend design and styling.
@@ -73,29 +76,39 @@ This Flask application demonstrates the integration of AWS AI services into a we
 
 5. **Access the Application**:
 
-    Open your web browser and navigate to `http://127.0.0.1:5000` to view the application.
+    Open your web browser and navigate to `url` to view the application.
 
 ## Application Walkthrough
 
 ### Index Page
 
 - **Description**: The homepage introduces the application and provides links to the text extraction and translation features.
-- **Screenshot**: ![Index Page Screenshot](URL-to-index-screenshot)
+![Index Page Screenshot](images/main_page.png)
 
 ### Text Extraction
 
 - **Description**: Upload an image to extract text. The extracted text will be displayed after processing.
-- **Screenshot**: ![Text Extraction Screenshot](URL-to-textract-screenshot)
+- **Upload the Image**
+![Text Extraction Screenshot](images/text_extraction.png)
+- **Sample Image**
+![Sample Image](images/test_image.png)
+- **Output**
+![Text Extraction Output Screenshot](images/text_extraction_output.png)
 
 ### Text Translation
 
 - **Description**: Upload a text file and select a language for translation. The translated text will be displayed after processing.
-- **Screenshot**: ![Text Translation Screenshot](URL-to-translate-screenshot)
+![Text Translation Page](images/translate.png)
+- **Sample File**
+![Sample File](images/text_sampleimage.png)
+- **Output** 
+![Text Translation Output Screenshot](images/translate_output.png)
 
 ### Error Handling
 
 - **Description**: Displays an error message if something goes wrong.
-- **Screenshot**: ![Error Page Screenshot](URL-to-error-screenshot)
+![Error Screenshot](images/error.png)
+
 
 ## Code
 
@@ -227,12 +240,16 @@ a:hover {
     <title>Error</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-    <h1>Error Occurred</h1>
-    <div class="error-message">
-        <p>{{ message }}</p>
+<body style="font-family: 'Arial', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+
+    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); width: 100%; max-width: 600px; text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 100vh;">
+        <h1>Error Occurred</h1>
+        <div class="error-message" style="flex: 1;">
+            <p>{{ message }}</p>
+        </div>
+        <a href="/" style="background-color: #0275d8; color: white; padding: 15px 30px; border: none; border-radius: 4px; text-decoration: none; font-size: 18px; margin-top: 20px; display: inline-block; text-align: center;">Back to Home</a>
     </div>
-    <a href="/">Back to Home</a>
+
 </body>
 </html>
 ```
@@ -315,9 +332,7 @@ a:hover {
                 <option value="zh">Chinese</option>
                 <option value="ja">Japanese</option>
                 <!-- Add more languages as needed -->
-           
-
- </select>
+            </select>
             <button type="submit">Translate</button>
         </form>
         {% if translation %}
@@ -334,8 +349,8 @@ a:hover {
 
 ## Key Learnings
 
-- **Integration with AWS Services**: Gained hands-on experience integrating AWS Textract and AWS Translate with a web application.
-- **Flask Web Application Development**: Enhanced skills in building and deploying Flask applications.
+- **Integration with AWS Services**: Gained hands-on experience integrating AWS AI severces i.e. AWS Textract and AWS Translate with a web application.
+- **Flask Web Application Development**: Enhanced skills in building and deploying Flask applications using python programming language.
 - **Handling File Uploads**: Learned to manage file uploads and process them effectively within a web application.
 
 ## Relevant Links
@@ -343,7 +358,8 @@ a:hover {
 - [AWS Textract Documentation](https://docs.aws.amazon.com/textract/latest/dg/what-is-textract.html)
 - [AWS Translate Documentation](https://docs.aws.amazon.com/translate/latest/dg/what-is.html)
 - [Flask Documentation](https://flask.palletsprojects.com/en/latest/)
-- [GitHub Repository](https://github.com/your-username/your-repository)
+- [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+
 
 ## Deployment
 
@@ -357,11 +373,3 @@ a:hover {
 1. **Upload HTML Files**: Upload your static HTML files to an S3 bucket.
 2. **Enable Static Website Hosting**: Configure your S3 bucket for static website hosting.
 3. **Access the Application**: The application will be accessible via the S3 website URL.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-You can replace `URL-to-your-screenshot`, `URL-to-index-screenshot`, `URL-to-textract-screenshot`, `URL-to-translate-screenshot`, and `URL-to-error-screenshot` with actual URLs for your screenshots. This README provides a comprehensive overview of your project and instructions for setting it up and running it.
